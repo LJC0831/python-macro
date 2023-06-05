@@ -19,8 +19,8 @@ chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=chrome_options)
 #티켓링크 이동
-#url = "https://www.ticketlink.co.kr/sports/baseball/62#reservation" #Kt야구
-url = "https://www.ticketlink.co.kr/sports/baseball/57#reservation" #삼성야구
+url = "https://www.ticketlink.co.kr/sports/baseball/62#reservation" #Kt야구
+#url = "https://www.ticketlink.co.kr/sports/baseball/57#reservation" #삼성야구
 driver.get(url)
 time.sleep(1)
 
@@ -44,8 +44,10 @@ time.sleep(1)
 
 
 # 예약일정 path 지정
+################ 세팅필요 ########################
 day_xpath='//*[@id="scheduleListDiv"]/ul/li[3]/div[3]/a' #테스트용 되는것
-#day_xpath='//*[@id="scheduleListDiv"]/ul/li[8]/div[3]/a'
+#day_xpath='//*[@id="scheduleListDiv"]/ul/li[4]/div[3]/a' # 6월 9일 open
+################ 세팅필요 ########################
 
 # 해당 일정 open 여부 체크
 i = 0
@@ -74,28 +76,28 @@ while i < 1 :
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a'))) #페이지로딩(최대300초)
         print("좌석선택")
         ################ 세팅필요 ########################
-        #pyautogui.moveTo(473 , 600 , 0.01) # 좌석마우스이동 KT
-        pyautogui.moveTo(226 , 633 , 0.01) # 좌석마우스이동 삼성블루존
+        pyautogui.moveTo(289 , 600 , 0.01) # 좌석마우스이동 KT
+        #pyautogui.moveTo(226 , 633 , 0.01) # 좌석마우스이동 삼성블루존
         ################ 세팅필요 ########################
         pyautogui.click()
         # 좌석선택유형
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[3]/div[1]/strong'))) #페이지로딩(최대300초)
-        #driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div/div/div/span/a').send_keys(Keys.ENTER)  # KT
-        driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div/div/div/span[2]/a').send_keys(Keys.ENTER)  # 삼성
+        driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div[1]/div/div/span/a').send_keys(Keys.ENTER)  # KT
+        #driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div/div/div/span[2]/a').send_keys(Keys.ENTER)  # 삼성
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="main_view"]'))) #페이지로딩(최대300초)
         ################ 세팅필요 ########################
         #KT
-        # pyautogui.moveTo(379 , 645 , 0.01) # 좌석상세 마우스이동
-        # pyautogui.click()
-        # pyautogui.moveTo(395 , 643 , 0.01) # 좌석상세 마우스이동
-        # pyautogui.click()
+        pyautogui.moveTo(388 , 587 , 0.01) # 좌석상세 마우스이동
+        pyautogui.click()
+        pyautogui.moveTo(374 , 643 , 0.01) # 좌석상세 마우스이동
+        pyautogui.click()
         # KT 끝
         #삼성
-        time.sleep(1)
-        pyautogui.moveTo(302 , 789 , 0.01) # 좌석상세 마우스이동
-        pyautogui.click()
-        pyautogui.moveTo(414 , 796 , 0.01) # 좌석상세 마우스이동
-        pyautogui.click()
+        # time.sleep(1)
+        # pyautogui.moveTo(302 , 789 , 0.01) # 좌석상세 마우스이동
+        # pyautogui.click()
+        # pyautogui.moveTo(414 , 796 , 0.01) # 좌석상세 마우스이동
+        # pyautogui.click()
         
         #삼성끝
         ################ 세팅필요 ########################
@@ -105,6 +107,7 @@ while i < 1 :
         pyautogui.moveTo(695 , 544 , 0.01) 
         pyautogui.click()
         ################ 세팅필요 ########################
+        #pyautogui.moveTo(644 , 602 , 0.01) # 인원선택(1명기준)
         pyautogui.moveTo(644 , 630 , 0.01) # 인원선택(2명기준)
         ################ 세팅필요 ########################
         pyautogui.click()
