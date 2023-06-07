@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import ctypes
+import keyboard
 
 if ctypes.windll.shell32.IsUserAnAdmin(): 
     print('관리자권한으로 실행된 프로세스입니다.')
@@ -85,25 +86,26 @@ while i < 1 :
         driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div[1]/div/div/span/a').send_keys(Keys.ENTER)  # KT
         #driver.find_element(By.XPATH, '//*[@id="area_bottom"]/form/fieldset/div/div/div/span[2]/a').send_keys(Keys.ENTER)  # 삼성
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="main_view"]'))) #페이지로딩(최대300초)
-        ################ 세팅필요 ########################
-        #KT
-        pyautogui.moveTo(388 , 587 , 0.01) # 좌석상세 마우스이동
+        #좌석영역잡기
+        print("시간 | 좌석선택완료 버튼 좌표 가져오기\n 마우스 가져다 대고 순서대로 a, b 를 누르면 됨\n")
+        k = 0
+        while k < 1 :
+            if keyboard.read_key() == "1":
+                xxx, yyy = pyautogui.position()
+                break
+        l = 0
+        pyautogui.moveTo(xxx , yyy , 0.01) # 좌석상세 마우스이동
         pyautogui.click()
-        pyautogui.moveTo(374 , 643 , 0.01) # 좌석상세 마우스이동
+        while l < 1 :
+            if keyboard.read_key() == "2":
+                selx, sely = pyautogui.position()
+                break
+        pyautogui.moveTo(selx , sely , 0.01) # 좌석상세 마우스이동
         pyautogui.click()
-        # KT 끝
-        #삼성
-        # time.sleep(1)
-        # pyautogui.moveTo(302 , 789 , 0.01) # 좌석상세 마우스이동
-        # pyautogui.click()
-        # pyautogui.moveTo(414 , 796 , 0.01) # 좌석상세 마우스이동
-        # pyautogui.click()
-        
-        #삼성끝
-        ################ 세팅필요 ########################
+        print("좌석선택완료")
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[4]/a[2]').send_keys(Keys.ENTER)  # 예약버튼
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="divPrice"]/div/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/div/a'))) #페이지로딩(최대300초)
-        
+        time.sleep(1)
         pyautogui.moveTo(695 , 544 , 0.01) 
         pyautogui.click()
         ################ 세팅필요 ########################
