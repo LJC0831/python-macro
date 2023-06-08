@@ -168,18 +168,18 @@ while i < 1 :
             except :
                 print("좌석선택완료")
                 break
-            # 매수확인
-            driver.switch_to.window(driver.window_handles[-1])
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="ifrmBookStep"]'))) #페이지로딩(최대300초) #매수확인
-            time.sleep(1)
-            pyautogui.moveTo(603 , 279 , 0.01) 
-            pyautogui.click()
-            ############ 세팅필요 ################
-            pyautogui.moveTo(600 , 328 , 0.01)  #표 매수2기준
-            pyautogui.click()
-            ############ 세팅필요 ################
-            pyautogui.moveTo(846 , 672 , 0.01)  
-            pyautogui.click()
+        # 매수확인
+        driver.switch_to.window(driver.window_handles[-1])
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="ifrmBookStep"]'))) #페이지로딩(최대300초) #매수확인
+        time.sleep(1)
+        pyautogui.moveTo(603 , 279 , 0.01) 
+        pyautogui.click()
+        ############ 세팅필요 ################
+        pyautogui.moveTo(600 , 328 , 0.01)  #표 매수2기준
+        pyautogui.click()
+        ############ 세팅필요 ################
+        pyautogui.moveTo(846 , 672 , 0.01)  
+        pyautogui.click()
 
         time.sleep(1)
         driver.switch_to.window(driver.window_handles[-1])
