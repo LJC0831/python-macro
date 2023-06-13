@@ -21,12 +21,12 @@ url = "http://ticket.yes24.com/Perf/44653"
 driver.get(url)
 
 #로그인
-# WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="consiceLogin"]'))) #페이지로딩(최대300초)
-# driver.find_element(By.XPATH, '//*[@id="consiceLogin"]').click()
-# WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="SMemberID"]'))) #페이지로딩(최대300초)
-# driver.find_element(By.XPATH, '//*[@id="SMemberID"]').send_keys('leejc831')
-# driver.find_element(By.XPATH, '//*[@id="SMemberPassword"]').send_keys('qrg258*01')
-# driver.find_element(By.XPATH, '//*[@id="btnLogin"]').click()
+WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="consiceLogin"]'))) #페이지로딩(최대300초)
+driver.find_element(By.XPATH, '//*[@id="consiceLogin"]').click()
+WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="SMemberID"]'))) #페이지로딩(최대300초)
+driver.find_element(By.XPATH, '//*[@id="SMemberID"]').send_keys('leejc831')
+driver.find_element(By.XPATH, '//*[@id="SMemberPassword"]').send_keys('qrg258*01')
+driver.find_element(By.XPATH, '//*[@id="btnLogin"]').click()
 
 
 a = 0
@@ -78,12 +78,12 @@ while i < 1 :
         driver.switch_to.window(driver.window_handles[-1])
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="StepCtrlBtn03"]/a[2]'))) #페이지로딩(최대300초) 
         time.sleep(1)
-        pyautogui.moveTo(1005 , 504 , 0.01) 
-        pyautogui.click()
-        ############### 세팅필요 #####################
-        pyautogui.moveTo(1005 , 552 , 0.01) # 2장기준
-        ############### 세팅필요 #####################
-        pyautogui.click()
+        # pyautogui.moveTo(1005 , 504 , 0.01) 
+        # pyautogui.click()
+        # ############### 세팅필요 #####################
+        # pyautogui.moveTo(1005 , 552 , 0.01) # 2장기준
+        # ############### 세팅필요 #####################
+        # pyautogui.click()
         driver.find_element(By.XPATH, '//*[@id="StepCtrlBtn03"]/a[2]').click()  # 다음단계
 
         # 수령방법
