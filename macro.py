@@ -19,9 +19,16 @@ driver = webdriver.Chrome(r"D:\chromedriver_win32\chromedriver.exe")
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=chrome_options)
+
+
+#search_url = '23006868' # 팝업X
+search_url = '23006868'  # 캡챠잇는거
 #인터파크 이동
-url = "https://ticket.interpark.com/Gate/TPLogin.asp"
-driver.get(url)
+url2 = 'http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=' + search_url
+driver.get(url2)
+
+WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gateway"]/div/div[2]/ul/li[1]/a'))) #페이지로딩(최대300초)
+driver.find_element(By.XPATH, '//*[@id="gateway"]/div/div[2]/ul/li[1]/a').click()
 driver.switch_to.frame(driver.find_element(By.XPATH, "//div[@class='leftLoginBox']/iframe[@title='login']")) # iframe 이동
 userId = driver.find_element(By.ID, 'userId')
 userId.send_keys('leejc831') # 로그인 할 계정 id
@@ -29,50 +36,22 @@ userPwd = driver.find_element(By.ID, 'userPwd')
 userPwd.send_keys('qrg258*001') # 로그인 할 계정의 패스워드
 userPwd.send_keys(Keys.ENTER)
 
-#search_url = '23006868' # 팝업X
-search_url = '23007932'  # 캡챠잇는거
-
-url2 = 'http://ticket.interpark.com/Ticket/Goods/GoodsInfo.asp?GoodsCode=' + search_url
-driver.get(url2)
-
+a = 0
+while a < 1 :
+    if keyboard.read_key() == "`":  # ` 키로 매크로시작
+        break
 # 예매하기 버튼 클릭
 i = 0
 while i < 1 : 
     WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="productSide"]/div/div[2]/a[1]'))) #페이지로딩(최대300초)
-    # 예매안내가 팝업이 뜨면 닫기. START
-    try :
-        use_yn = driver.find_element(By.XPATH, '//*[@id="popup-prdGuide"]/div/div[3]/button').text
-    except :
-        use_yn = 0
-
-    if use_yn == 0 :
-        print("팝업없네")
-    else :
-        print("팝업있네")
-        driver.find_element(By.XPATH, '//*[@id="popup-prdGuide"]/div/div[3]/button').send_keys(Keys.ENTER)
-
-    # 예매안내가 팝업이 뜨면 닫기 END
-    time.sleep(1)
     try :
         use_yn = driver.find_element(By.XPATH, '//*[@id="productSide"]/div/div[2]/a[1]').text
     except :
         use_yn = 0
     
     if use_yn == "예매하기" : 
-        time.sleep(1)
+        #time.sleep(1)
         driver.find_element(By.XPATH, '//*[@id="productSide"]/div/div[2]/a[1]').click() # 예매하기 클릭
-
-        # # 날짜입력
-        # select.select_by_value('20230726')  #예약날자입력
-        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="PlaySeq"]'))) #페이지로딩(최대300초)
-        # selectTime = Select(driver.find_element(By.XPATH, '//*[@id="PlaySeq"]')) #예약시간
-        # selectTime.select_by_index(1) #예약날짜입력
-
-        # # 좌석선택
-        # driver.switch_to.frame(driver.find_element(By.XPATH, "//*[@id='ifrmSeatDetail']")) # iframe 이동
-        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="ifrmSeatDetail"]'))) #페이지로딩(최대300초)
-        #driver.find_element(By.XPATH, '//*[@id="TmgsTable"]/tbody/tr/td/img[236]').click() #좌석클릭
-        #driver.find_element(By.XPATH, '//*[@id="TmgsTable"]/tbody/tr/td/img[238]').click() #좌석클릭
         time.sleep(1)
         driver.switch_to.window(driver.window_handles[-1])
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="ifrmSeat"]'))) #페이지로딩(최대300초)
