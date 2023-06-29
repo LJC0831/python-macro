@@ -11,15 +11,17 @@ from selenium.webdriver.common.alert import Alert
 import easyocr
 import keyboard
 seat = 0
-def check_go2(seatText):
+def check_go2(seatText, seatName):
     if (seatText == "A") :
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
-        
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
 
@@ -28,8 +30,11 @@ def check_go2(seatText):
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
     
@@ -39,8 +44,53 @@ def check_go2(seatText):
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
-        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
+        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
+    
+    if (seatText == "PRE_A") :
+        
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/div/div/span[1]/a')))
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/div/div/span[1]/a').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
+        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
+    
+    if (seatText == "PRE_B") :
+        
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/div/div/span[1]/a')))
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/div/div/span[1]/a').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
+        driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
+    
+    if (seatText == "PRE_B") :
+        
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/div/div/span[1]/a')))
+        driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/div/div/span[1]/a').click()  #
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        if (seatName == 2) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
+        elif (seatName == 1) :
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
 
@@ -48,22 +98,46 @@ def check_go2(seatText):
         da = Alert(driver)
         da.accept()
         time.sleep(1)
+        each = 0
+        while each < 1 :
+            print("매크로 ` 누르면 재시작")
+            if keyboard.read_key() == "`":
+                break
     except :
         print("좌석선택완료") 
+        each = 0
+        while each < 1 :
+            print("매크로 ` 누르면 재시작")
+            if keyboard.read_key() == "`":
+                break
+        # 예매처리
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="divPrice"]/div/table/tbody/tr[2]/td/div/table/tbody/tr[1]/td[2]/div/a')))
+        # driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
+        
+
     
 
 def check_go(seatName, i):
-    if (seatName >= 2) :
+    if (seatName >= 1) :
                 
                 if (i == "STA") :
                     print("1등석A좌석 취소티켓발생")
-                    check_go2("A")
+                    check_go2("A",seatName)
                 if (i == "MID") :
                     print("1등석B좌석 취소티켓발생")
-                    check_go2("B")
+                    check_go2("B",seatName)
                 if (i == "END") :
                     print("1등석C좌석 취소티켓발생")
-                    check_go2("C")
+                    check_go2("C",seatName)
+                if (i == "PRE_STA") :
+                    print("프리미엄A 취소티켓발생")
+                    check_go2("PRE_A",seatName)
+                if (i == "PRE_MID") :
+                    print("프리미엄B 취소티켓발생")
+                    check_go2("PRE_B",seatName)
+                if (i == "PRE_END") :
+                    print("프리미엄C 취소티켓발생")
+                    check_go2("PRE_C",seatName)
                 # 알림 생성을 위한 자바스크립트 실행 예제
                 
                 
@@ -104,6 +178,12 @@ def check_go(seatName, i):
              print("1등석B좌석없음")
         if (i == "END") :
             print("1등석C좌석없음")
+        if (i == "PRE_STA") :
+            print("프리미엄A좌석없음")
+        if (i == "PRE_MID") :
+            print("프리미엄B좌석없음")
+        if (i == "PRE_END") :
+            print("프리미엄C좌석없음")
             WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a'))) #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a').click() # 새로고침
     
@@ -161,13 +241,27 @@ while i < 1 :
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="marketing-webview"]')))
         driver.switch_to.frame(driver.find_element(By.XPATH, '//*[@id="marketing-webview"]')) # iframe 이동
         while seat < 1 :
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[4]/a'))) #테스트
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]'))) #
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]'))) #
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]'))) #
-            seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]').text)
-            seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]').text)
-            seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]').text)
-            check_go(seat01, "STA")
-            check_go(seat02, "MID")
-            check_go(seat03, "END")
+            try :
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[4]/a'))) #테스트
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]'))) #
+                seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]').text)
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]'))) #
+                seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]').text)
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]'))) #
+                seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]').text)
+                check_go(seat01, "STA")
+                check_go(seat02, "MID")
+                check_go(seat03, "END")
+
+                # 프리미엄
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]'))) #
+                pre_seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]').text)
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]'))) #
+                pre_seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]').text)
+                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]'))) #
+                pre_seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]').text)
+                check_go(pre_seat01, "PRE_STA")
+                check_go(pre_seat02, "PRE_MID")
+                check_go(pre_seat03, "PRE_END")
+            except :
+                continue
