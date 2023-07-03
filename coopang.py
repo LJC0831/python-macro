@@ -147,6 +147,12 @@ def check_go2(seatText, seatName):
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
 
+    if (seatName == 1) :
+        print("좌석1개나옴")
+    elif (seatName == 2) :
+        print("좌석2개나옴")
+    else :
+        print("좌석3자리이상 나옴")
     try :
         da = Alert(driver)
         da.accept()
@@ -173,7 +179,7 @@ def check_go2(seatText, seatName):
     
 
 def check_go(seatName, i):
-    if (seatName >= 1) :
+    if (seatName >= 1 ) :
                 
                 if (i == "STA") :
                     print("1등석A좌석 취소티켓발생")
@@ -259,7 +265,7 @@ def check_go(seatName, i):
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a').click() # 새로고침
             da = Alert(driver)
             da.accept()
-            time.sleep(1)
+            time.sleep(0.5)
             
     
    
