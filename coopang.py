@@ -314,7 +314,7 @@ driver.get(url)
 ##
 ## 이거 꼭수정
 #seat_xpath = '/html/body/div[4]/div/div/div[2]/div[2]/div[1]/button'
-seat_xpath = '/html/body/div[4]/div/div/div[2]/div[2]/div[2]/button' #마드리드
+seat_xpath = '/html/body/div[3]/div/div/div[2]/div[2]/div[2]/button' #마드리드
 ##
 a = 0
 while a < 1 :
@@ -322,70 +322,70 @@ while a < 1 :
         break
 
 print("매크로 시작")
+# WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="marketing-webview"]')))
+# driver.switch_to.frame(driver.find_element(By.XPATH, '//*[@id="marketing-webview"]')) # iframe 이동
+# WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[3]/div/span[1]'))) #동의1
+# driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[3]/div/span[1]').click() # 동의1
+# WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[4]/div/span[1]'))) #동의2
+# driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[4]/div/span[1]').click() # 동의2
+# 예매하기 버튼 클릭
+# i = 0
+# while i < 1 : 
+#     WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[5]/button'))) #티켓구매시작버튼
+#     driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[5]/button').click() # 티켓구매시작버튼
+
+
+    # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, seat_xpath))) #예약하기버튼 현재 K리그
+    # try :
+    #     use_yn = driver.find_element(By.XPATH, seat_xpath).get_attribute("disabled") # 예약하기버튼 현재 K리그
+    # except :
+    #     use_yn = 0
+
+# if use_yn :  # 아직 비활성화
+#     print('아직신청불가')
+#     pyautogui.moveTo(1212 , 1000 , 0.01) # 좌석마우스이동 
+#     pyautogui.click()
+#     continue
+# else :
+driver.switch_to.window(driver.window_handles[-1])
 WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="marketing-webview"]')))
 driver.switch_to.frame(driver.find_element(By.XPATH, '//*[@id="marketing-webview"]')) # iframe 이동
-WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[3]/div/span[1]'))) #동의1
-driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[3]/div/span[1]').click() # 동의1
-WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[4]/div/span[1]'))) #동의2
-driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[4]/div/span[1]').click() # 동의2
-# 예매하기 버튼 클릭
-i = 0
-while i < 1 : 
-    WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[5]/button'))) #티켓구매시작버튼
-    driver.find_element(By.XPATH, '//*[@id="gatsby-focus-wrapper"]/div[1]/div[1]/div[2]/div/form/div[5]/button').click() # 티켓구매시작버튼
+driver.find_element(By.XPATH, seat_xpath).click() # 예약하기버튼
 
-
-    WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, seat_xpath))) #예약하기버튼 현재 K리그
+while seat < 1 :
     try :
-        use_yn = driver.find_element(By.XPATH, seat_xpath).get_attribute("disabled") # 예약하기버튼 현재 K리그
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[4]/a'))) #테스트
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]'))) #
+        seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]'))) #
+        seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]'))) #
+        seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]').text)
+        check_go(seat01, "STA")
+        check_go(seat02, "MID")
+        check_go(seat03, "END")
+
+        # 프리미엄
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]'))) #
+        pre_seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]'))) #
+        pre_seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]'))) #
+        pre_seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]').text)
+        check_go(pre_seat01, "PRE_STA")
+        check_go(pre_seat02, "PRE_MID")
+        check_go(pre_seat03, "PRE_END")
+
+        # 2등석
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]'))) #
+        second_seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]'))) #
+        second_seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]').text)
+        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]'))) #
+        second_seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]').text)
+        check_go(second_seat01, "SEC_STA")
+        check_go(second_seat02, "SEC_MID")
+        check_go(second_seat03, "SEC_END")
+        
     except :
-        use_yn = 0
-
-    if use_yn :  # 아직 비활성화
-        print('아직신청불가')
-        pyautogui.moveTo(1212 , 1000 , 0.01) # 좌석마우스이동 
-        pyautogui.click()
         continue
-    else :
-        driver.find_element(By.XPATH, seat_xpath).click() # 예약하기버튼
-        time.sleep(1)
-        driver.switch_to.window(driver.window_handles[-1])
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="marketing-webview"]')))
-        driver.switch_to.frame(driver.find_element(By.XPATH, '//*[@id="marketing-webview"]')) # iframe 이동
-        while seat < 1 :
-            try :
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[4]/a'))) #테스트
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]'))) #
-                seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]'))) #
-                seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]'))) #
-                seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]').text)
-                check_go(seat01, "STA")
-                check_go(seat02, "MID")
-                check_go(seat03, "END")
-
-                # 프리미엄
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]'))) #
-                pre_seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]'))) #
-                pre_seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]'))) #
-                pre_seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]').text)
-                check_go(pre_seat01, "PRE_STA")
-                check_go(pre_seat02, "PRE_MID")
-                check_go(pre_seat03, "PRE_END")
-
-                # 2등석
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]'))) #
-                second_seat01 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]'))) #
-                second_seat02 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]').text)
-                WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]'))) #
-                second_seat03 = int(driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]').text)
-                check_go(second_seat01, "SEC_STA")
-                check_go(second_seat02, "SEC_MID")
-                check_go(second_seat03, "SEC_END")
-                
-            except :
-                continue
