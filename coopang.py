@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support.ui import WebDriverWait
 import easyocr
 import keyboard
 import os
@@ -19,17 +20,17 @@ def play_mp3(file_path):
     os.startfile(file_path)
 
 def check_go2(seatText, seatName):
-    play_mp3(mp3_file)
-
     if (seatText == "A") :
         print("A 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83445"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83445"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -42,11 +43,13 @@ def check_go2(seatText, seatName):
         print("B 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83446"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83446"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -59,11 +62,13 @@ def check_go2(seatText, seatName):
         print("C 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]').click()  #
+        print("선택")
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/a/div/span[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83447"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83447"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -76,11 +81,13 @@ def check_go2(seatText, seatName):
         print("PRE_A 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83442"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83442"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -93,11 +100,13 @@ def check_go2(seatText, seatName):
         print("PRE_B 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83443"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83443"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -110,11 +119,13 @@ def check_go2(seatText, seatName):
         print("PRE_C 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]').click()  #
+        print("선택")
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/a/div/span[2]').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83444"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83444"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -129,11 +140,13 @@ def check_go2(seatText, seatName):
         print("SEC_A 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83448"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83448"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -146,11 +159,13 @@ def check_go2(seatText, seatName):
         print("SEC_B 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83449"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83449"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -163,11 +178,13 @@ def check_go2(seatText, seatName):
         print("SEC_C 예매시작!!")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]'))) #
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]/span[1]').click()  #
-        WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]'))) #
-        driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]').click()  #
+        # WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]'))) #
+        # driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/a/div/span[2]').click()  #
+        print("선택")
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="seat_grade_83451"]/div/div/span[1]/a')))
         driver.find_element(By.XPATH, '//*[@id="seat_grade_83451"]/div/div/span[1]/a').click()  #
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]')))
+        print("인원체크")
         if (seatName >= 2) :
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
             driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[1]/form/fieldset/div/button[2]').click()  #
@@ -176,6 +193,7 @@ def check_go2(seatText, seatName):
         WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a')))
         driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[5]/div[2]/a').click()  #
 
+    play_mp3(mp3_file)
     if (seatName == 1) :
         print("좌석1개나옴")
     elif (seatName == 2) :
@@ -290,13 +308,14 @@ def check_go(seatName, i):
             print("2등석B좌석없음")
         if (i == "SEC_END") :
             print("2등석C좌석없음")
-            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a').click() # 새로고침
-            da = Alert(driver)
-            da.accept()
-            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a'))) #
-            # driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a').click() # 새로고침
             # da = Alert(driver)
             # da.accept()
+            WebDriverWait(driver, 300).until(EC.presence_of_element_located((By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a'))) #
+            driver.find_element(By.XPATH, '//*[@id="container"]/div[1]/div[2]/div[2]/div[1]/div[2]/a').click() # 새로고침
+            time.sleep(0.3)
+            # da = Alert(driver)
+            # da.accept()
+            print("새로고침완료")
             
     
    
