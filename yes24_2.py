@@ -37,7 +37,7 @@ def macro():
     while i==0 :
         driver.switch_to.default_content()
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="2023-10-20"]'))) #페이지로딩(최대300초)
-        driver.find_element(By.XPATH, '//*[@id="2023-10-20"]').click()
+        driver.find_element(By.XPATH, '//*[@id="2023-10-21"]').click()
         time.sleep(0.5)
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="btnSeatSelect"]'))) #페이지로딩(최대300초)
         driver.find_element(By.XPATH, '//*[@id="btnSeatSelect"]').click()
@@ -79,7 +79,7 @@ def macro():
                             break
                 
         
-        print("금요일 좌석 현재없음")
+        print("토요일 좌석 현재없음")
 
         # 토요일
         #time.sleep(1)
@@ -88,7 +88,7 @@ def macro():
         #time.sleep(0.5)
         driver.switch_to.default_content()
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="2023-10-21"]'))) #페이지로딩(최대300초)
-        driver.find_element(By.XPATH, '//*[@id="2023-10-21"]').click()
+        driver.find_element(By.XPATH, '//*[@id="2023-10-22"]').click()
         time.sleep(0.5)
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="btnSeatSelect"]'))) #페이지로딩(최대300초)
         driver.find_element(By.XPATH, '//*[@id="btnSeatSelect"]').click()
@@ -130,7 +130,7 @@ def macro():
                             macro()
                             break
 
-        print("토요일 좌석 현재없음")
+        print("일요일 좌석 현재없음")
         driver.switch_to.window(driver.window_handles[-1])
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="divFlash"]/iframe'))) #페이지로딩(최대300초)
         driver.switch_to.frame(driver.find_element(By.XPATH, '//*[@id="divFlash"]/iframe')) # iframe 이동
