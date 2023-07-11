@@ -68,7 +68,7 @@ def macro():
                 continue
             else :
                 play_mp3(mp3_file)
-                print("금요일 좌석발생")
+                print("토요일 좌석발생")
                 seat = 0
                 while seat < 1 :
                     print("매크로재시작 ` 키")
@@ -90,6 +90,7 @@ def macro():
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="2023-10-21"]'))) #페이지로딩(최대300초)
         driver.find_element(By.XPATH, '//*[@id="2023-10-22"]').click()
         time.sleep(0.5)
+        driver.switch_to.window(driver.window_handles[-1])
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="btnSeatSelect"]'))) #페이지로딩(최대300초)
         driver.find_element(By.XPATH, '//*[@id="btnSeatSelect"]').click()
         time.sleep(0.5)
@@ -120,7 +121,7 @@ def macro():
                 continue
             else :
                 play_mp3(mp3_file)
-                print("토요일 좌석발생")
+                print("일요일 좌석발생")
                 seat = 0
                 while seat < 1 :
                     print("매크로재시작 ` 키")
@@ -153,15 +154,16 @@ WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@
 driver.find_element(By.XPATH, '//*[@id="mainForm"]/div[9]/div/div[4]/a[4]').click()
 driver.switch_to.window(driver.window_handles[-1])
 
-try :
-    macro()
-except :
-    seat = 0
-    while seat < 1 :
-        print("매크로재시작 ` 키")
-        k = 0
-        while k < 1 :
-            if keyboard.read_key() == "`":
-                macro()
-                break
+while True:
+    try :
+        macro()
+    except :
+        seat = 0
+        while seat < 1 :
+            print("매크로재시작 ` 키")
+            k = 0
+            while k < 1 :
+                if keyboard.read_key() == "`":
+                    break
+            break
 
