@@ -10,7 +10,6 @@ from selenium.webdriver.common.alert import Alert
 from bs4 import BeautifulSoup
 import ctypes
 import cv2
-import pytesseract
 import urllib.request
 import keyboard
 import os
@@ -72,16 +71,16 @@ def macro():
             driver.get(url)
             time.sleep(1)
     
-try :
-    macro()
-except :
-    seat = 0
-    while seat < 1 :
-        print("매크로재시작 ` 키")
-        k = 0
-        while k < 1 :
-            if keyboard.read_key() == "`":
-                macro()
-                break
-
+while True:
+    try :
+        macro()
+    except :
+        seat = 0
+        while seat < 1 :
+            print("매크로재시작 ` 키")
+            k = 0
+            while k < 1 :
+                if keyboard.read_key() == "`":
+                    break
+            break
 
