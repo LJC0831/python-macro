@@ -42,9 +42,9 @@ def macro01():
             pyautogui.click()
                    
         WebDriverWait(driver, 1).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]/div[3]/div/div[3]/div[1]/div[5]/div[1]/div[5]/div[2]'))) #
-        sta_ymd = driver.find_element(By.XPATH, '/html/body/div[4]/div[3]/div/div[3]/div[1]/div[5]/div[2]/div[1]/div[7]') #달력 29일 나중에 수정#####################
+        sta_ymd = driver.find_element(By.XPATH, '/html/body/div[4]/div[3]/div/div[3]/div[1]/div[5]/div[2]/div[2]/div[6]') #달력 8일 나중에 수정#####################
         sta_ymd.click() 
-        end_ymd = driver.find_element(By.XPATH, '/html/body/div[4]/div[3]/div/div[3]/div[1]/div[5]/div[2]/div[2]/div[1]') #달력 30일 나중에 수정#####################
+        end_ymd = driver.find_element(By.XPATH, '/html/body/div[4]/div[3]/div/div[3]/div[1]/div[5]/div[2]/div[3]/div[1]') #달력 10일 나중에 수정#####################
         end_ymd.click() 
 
         driver.find_element(By.XPATH, '/html/body/div[4]/div[3]/div/button').click() # 선택완료
